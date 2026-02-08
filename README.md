@@ -43,7 +43,8 @@ def create_parametric_component(l=100.0, w=100.0, h=5.0, n=6):
 # Execution with custom parameters
 create_parametric_component(120, 100, 5, 8)
 ```
-![Model Preview](preview.png.png)
+
+
 
 (Parametric Flange)
 import FreeCAD as App
@@ -78,4 +79,3 @@ def create_flange(outer_r=50.0, inner_r=20.0, thickness=10.0, hole_count=6, hole
 # 调用示例：创建一个 8 孔法兰
 create_flange(60, 25, 12, 8, 4)
 
-![Model Preview](preview.png(2).png)
