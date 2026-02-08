@@ -42,4 +42,5 @@ def create_parametric_component(l=100.0, w=100.0, h=5.0, n=6):
 
 # Execution with custom parameters
 create_parametric_component(120, 100, 5, 8)
+
 ![Model Preview](preview.png)
