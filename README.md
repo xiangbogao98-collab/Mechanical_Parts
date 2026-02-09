@@ -55,14 +55,13 @@ import math
 def create_flange(outer_r=50.0, inner_r=20.0, thickness=10.0, hole_count=6, hole_r=5.0):
     doc = App.newDocument("Industrial_Flange")
     
-    # 1. 创建主圆盘
+   
     base = Part.makeCylinder(outer_r, thickness)
     
-    # 2. 挖掉中心通孔
     center_hole = Part.makeCylinder(inner_r, thickness)
     flange_body = base.cut(center_hole)
     
-    # 3. 算法生成螺栓孔阵列 (Circular Array)
+    
     bolt_holes = []
     pcd = (outer_r + inner_r) / 2  # 孔心距圆周
     for i in range(hole_count):
@@ -72,12 +71,11 @@ def create_flange(outer_r=50.0, inner_r=20.0, thickness=10.0, hole_count=6, hole
         hole = Part.makeCylinder(hole_r, thickness, App.Vector(x, y, 0))
         bolt_holes.append(hole)
         
-    # 4. 布尔运算：一次性切除所有孔
+
     final_shape = flange_body.cut(Part.makeCompound(bolt_holes))
     Part.show(final_shape)
     doc.recompute()
 
-# 调用示例：创建一个 8 孔法兰
 create_flange(60, 25, 12, 8, 4)
 <img width="976" height="578" alt="preview png (1)" src="https://github.com/user-attachments/assets/9e61aabc-3c66-4c38-bd3b-34b2148bf816" />
 
