@@ -61,7 +61,6 @@ def create_flange(outer_r=50.0, inner_r=20.0, thickness=10.0, hole_count=6, hole
     center_hole = Part.makeCylinder(inner_r, thickness)
     flange_body = base.cut(center_hole)
     
-    
     bolt_holes = []
     pcd = (outer_r + inner_r) / 2  # 孔心距圆周
     for i in range(hole_count):
@@ -71,7 +70,6 @@ def create_flange(outer_r=50.0, inner_r=20.0, thickness=10.0, hole_count=6, hole
         hole = Part.makeCylinder(hole_r, thickness, App.Vector(x, y, 0))
         bolt_holes.append(hole)
         
-
     final_shape = flange_body.cut(Part.makeCompound(bolt_holes))
     Part.show(final_shape)
     doc.recompute()
