@@ -62,7 +62,7 @@ def create_flange(outer_r=50.0, inner_r=20.0, thickness=10.0, hole_count=6, hole
     flange_body = base.cut(center_hole)
     
     bolt_holes = []
-    pcd = (outer_r + inner_r) / 2  # 孔心距圆周
+    pcd = (outer_r + inner_r) 
     for i in range(hole_count):
         angle = math.radians(i * (360.0 / hole_count))
         x = pcd * math.cos(angle)
